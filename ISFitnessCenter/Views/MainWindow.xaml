@@ -8,10 +8,6 @@
         
         Title="Aboniments" Height="650" Width="1000">
     <StackPanel Orientation="Vertical">
-        <Label                
-            Content="Поиск"/>
-        <TextBox
-            x:Name="SearchBox"/>
         <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden" Source="Frames/ClientsPage.xaml"/>
         <Separator/>
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal" >

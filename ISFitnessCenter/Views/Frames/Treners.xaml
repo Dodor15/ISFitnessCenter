@@ -18,5 +18,13 @@
             <Label Content="Персональные тренировки"/>
             <Label Content="Танцор"/>
         </ComboBox>
+        <ListView>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Название" Width="160"/>
+                    <GridViewColumn Header="Необходимая дополнительная услуга" Width="450"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </StackPanel>
 </Page>

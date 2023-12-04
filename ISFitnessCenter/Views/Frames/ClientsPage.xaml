@@ -9,19 +9,30 @@
       Title="ClientsPage">
 
     <StackPanel>
+        <Label                
+    Content="Поиск"/>
+        <TextBox
+    x:Name="SearchBox"/>
+        <StackPanel Orientation="Horizontal">
+            <Button HorizontalAlignment="Right" Width="160" Content="для разработчиков" x:Name="addPeople" Click="addPeople_Click"></Button>
+        </StackPanel>
+       
         <ScrollViewer>
-            <ListView Height="450px" x:Name="ClientsList">
+            <ListView Height="450px" x:Name="ClientsList" ItemsSource="{Binding clientss}" SelectionChanged="ClientsList_SelectionChanged">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Номер Аб." Width="160"/>
-                        <GridViewColumn Header="ФИО" Width="450"/>
-                        <GridViewColumn Header="Номер" Width="280"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding ClientId}" Header="Номер Аб." Width="160"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding FIOclient}" Header="ФИО" Width="450"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding NumberPhone}" Header="Номер" Width="280"/>
                     </GridView>
                 </ListView.View>
             </ListView>
         </ScrollViewer>
-        <Button Margin="10" Content="Добавить" x:Name="add" Click="add_Click"/>
-            <Button Margin="10"  Content="Изменить" x:Name="edit" Click="edit_Click"/>
-        <Button Margin="10"  Content="Тренеры" x:Name="treners" Click="treners_Click"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Margin="10" Content="Добавить" x:Name="add" Click="add_Click"/>
+            <Button Margin="10"  Content="Изменить" x:Name="edit" Click="edit_Click" IsEnabled="False"/>
+            <Button Margin="10"  Content="Назначить тренеровку" x:Name="treners" Click="treners_Click" IsEnabled="False"/>
+        </StackPanel>
+        
     </StackPanel>
 </Page>

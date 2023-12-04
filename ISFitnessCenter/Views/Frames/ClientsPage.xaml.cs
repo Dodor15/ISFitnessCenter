@@ -1,6 +1,7 @@
 ﻿using ISFitnessCenter.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,10 +22,23 @@ namespace ISFitnessCenter.Views.Frames
     /// </summary>
     public partial class ClientsPage : Page
     {
+        public ObservableCollection<Client> clientss { get; set; }
         public ClientsPage()
         {
+            clientss = new ObservableCollection<Client>();
+            using (var context = new FitnessContext())
+            {
+                foreach (var cl in context.clients.ToList())
+                {
+                    clientss.Add(cl);
+                }
+            }
             InitializeComponent();
+            ClientsList.ItemsSource = clientss;
+           
         }
+
+     
 
         private void add_Click(object sender, RoutedEventArgs e)
         {
@@ -41,6 +55,27 @@ namespace ISFitnessCenter.Views.Frames
         private void treners_Click(object sender, RoutedEventArgs e)
         {
            NavigationService.Navigate(new Treners());
+        }
+
+        private void addPeople_Click(object sender, RoutedEventArgs e)
+        {
+            AddPeople ap = new();
+            ap.ShowDialog();
+        }
+
+        private void ClientsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ClientsList.SelectedItem != null)
+            {
+                edit.IsEnabled = true;
+                treners.IsEnabled = true;// Активация кнопки
+            }
+            else
+            {
+
+                edit.IsEnabled = false;
+                treners.IsEnabled = false; // Деактивация кнопки
+            }
         }
     }
 }

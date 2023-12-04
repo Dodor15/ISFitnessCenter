@@ -1,0 +1,20 @@
+﻿<Window x:Class="ISFitnessCenter.Views.AddPeople"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ISFitnessCenter.Views"
+        mc:Ignorable="d"
+        Title="AddPeople" Height="450" Width="800">
+    <StackPanel HorizontalAlignment="Center">
+        <Label Content="choice"/>
+        <ComboBox x:Name="Who" Width="400">
+            <Label Content="Тренера"/>
+            <Label Content="Клиенты"/>
+        </ComboBox>
+        <Label Content="Count"/>
+        <TextBox PreviewTextInput="TextBox_PreviewTextInput" x:Name="countText"/>
+        <Button Content="generate" x:Name="generateButton" Click="generateButton_Click"/>
+        <ListBoxItem x:Name="itemsListbox" />
+    </StackPanel>
+</Window>

@@ -20,9 +20,23 @@ namespace ISFitnessCenter.Views
     /// </summary>
     public partial class AddAboniment : Window
     {
+        bool edit = true;
         public AddAboniment(Client clients)
         {
+            edit = false;
             InitializeComponent();
+            fioBox.Text = clients.FIOclient;
+            phoneBox.Text = clients.NumberPhone;
+            if (clients.Pool is true)
+                pool.IsChecked = true;
+            if (clients.Ring is true)
+                ring.IsChecked = true;
+            if (clients.Aerobic is true)
+                aerobic.IsChecked = true;
+            if (clients.Dance is true)
+                dance.IsChecked = true;
+            if (clients.trampoline is true)
+                trampline.IsChecked = true;
             addClient.Content = "Изменить";
 
         }
