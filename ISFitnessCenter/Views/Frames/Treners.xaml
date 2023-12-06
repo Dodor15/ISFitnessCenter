@@ -9,20 +9,11 @@
       Title="Treners">
 
     <StackPanel>
-        <ComboBox>
-            <Label Content="Персональные тренеровки"/>
-            <Label Content="Груповые тренеровки"/>
-            <Label Content="Бокс"/>
-            <Label Content="Тайский бокс"/>
-            <Label Content="Тренер по полаванью"/>
-            <Label Content="Персональные тренировки"/>
-            <Label Content="Танцор"/>
-        </ComboBox>
-        <ListView>
+        <ListView ItemsSource="{Binding trenerList}" Height="400" x:Name="spec" SelectionChanged="spec_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Название" Width="160"/>
-                    <GridViewColumn Header="Необходимая дополнительная услуга" Width="450"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding specialityName}" Header="Название" Width="160"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding zalsId.ZalsName}" Header="Необходимая дополнительная услуга" Width="450"/>
                 </GridView>
             </ListView.View>
         </ListView>

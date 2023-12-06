@@ -23,6 +23,7 @@ namespace ISFitnessCenter.Views.Frames
     public partial class ClientsPage : Page
     {
         public ObservableCollection<Client> clientss { get; set; }
+        
         public ClientsPage()
         {
             clientss = new ObservableCollection<Client>();
@@ -44,6 +45,7 @@ namespace ISFitnessCenter.Views.Frames
         {
             AddAboniment aa = new AddAboniment();
             aa.ShowDialog();
+           
         }
 
         private void edit_Click(object sender, RoutedEventArgs e)
@@ -61,6 +63,7 @@ namespace ISFitnessCenter.Views.Frames
         {
             AddPeople ap = new();
             ap.ShowDialog();
+            
         }
 
         private void ClientsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
