@@ -26,6 +26,8 @@ namespace ISFitnessCenter.Views
         public Trener tr { get; set; }
         List<Client> clien;
         public Client cl { get; set; }
+        /*Specialyty_Trener st1 = new Specialyty_Trener();*/
+        public Specialyty_Trener st2 { get; set; }
         
         public AddPeople()
         {
@@ -88,7 +90,34 @@ namespace ISFitnessCenter.Views
                     }
                     MessageBox.Show("Сохраненно");
                     break;
+                case 2:
+                   
+
+                    using (var context = new FitnessContext())
+                    {
+                        List<Trener> treners = context.treners.ToList();
+                        List<Specialtiy> specialtiy = context.specialtiys.ToList();
+
+                        foreach (var ts in treners)
+                        {
+                            
+                            Specialyty_Trener st1 = new Specialyty_Trener(); // Создаем новый объект при каждой итерации
+                            st1.trenerId = ts;
+                            st1.SpecialtiyId = GetRandovST(specialtiy);
+
+                            context.specialyty_Treners.Add(st1);
+                        }
+                        context.SaveChanges();
+                    }
+                    MessageBox.Show("Сохранено");
+                    break;
             }
         }
+        Specialtiy GetRandovST(List<Specialtiy> st)
+        {
+            var rnd = new Random();
+            return st[rnd.Next(st.Count-1)];
+        }
     }
+    
 }
