@@ -9,6 +9,11 @@
       Title="Treners">
 
     <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="Back" Click="Back_Click" Content="Назад" Margin="20 0 0 0"/>
+            <Label Content="Поиск" Margin="20 0 0 0"/>
+            <TextBox x:Name="searchTremer" Width="300" Margin="10 0 0 0"/>
+        </StackPanel>
         <ListView ItemsSource="{Binding trenerList}" Height="400" x:Name="spec" SelectionChanged="spec_SelectionChanged">
             <ListView.View>
                 <GridView>

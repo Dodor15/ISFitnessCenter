@@ -1,6 +1,5 @@
 ﻿using ISFitnessCenter.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -20,36 +19,31 @@ using System.Windows.Shapes;
 namespace ISFitnessCenter.Views.Frames
 {
     /// <summary>
-    /// Логика взаимодействия для Treners.xaml
+    /// Логика взаимодействия для Trenerovki.xaml
     /// </summary>
-
-    
-    public partial class Treners : Page
+    public partial class Trenerovki : Page
     {
-        public ObservableCollection<Specialtiy> trenerList { get; set; }
-        public Treners()
+        public ObservableCollection<Specialyty_Trener> ST { get; set; }
+        public Trenerovki(Specialtiy specialtiy)
         {
-            trenerList = new ObservableCollection<Specialtiy>();
+            ST = new();
             using (var context = new FitnessContext())
             {
-                foreach (var cl in context.specialtiys.Include(c=>c.zalsId).ToList())
+                foreach (var st in context.specialyty_Treners.Include(c => c.trenerId).Include(c=>c.trenerId.AdressTrener).Where(c => c.SpecialtiyId == specialtiy))
                 {
-                    trenerList.Add(cl);
+                    ST.Add(st);
                 }
-            
             }
-                
             InitializeComponent();
-            spec.ItemsSource = trenerList;
-
+            trenersLV.ItemsSource = ST;
         }
 
-        private void spec_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void back_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Trenerovki((Specialtiy)spec.SelectedItem));
+
         }
 
-        private void Back_Click(object sender, RoutedEventArgs e)
+        private void trenersLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
