@@ -34,7 +34,7 @@ namespace ISFitnessCenter.Views
                 Sch = context.schedules.Where(c => c.trenerId == trener).First();
             }
             InitializeComponent();
-            specCombo.ItemsSource = specialtiy;
+           // specCombo.ItemsSource = specialtiy;
             if (Sch.Mondeay)
                 Mondeay.IsChecked = true;
             if (Sch.Tuesday)
@@ -119,7 +119,7 @@ namespace ISFitnessCenter.Views
                 try
                 {
                     Specialyty_Trener specialyty_Trener = context.specialyty_Treners.Where(c => c.trenerId == trener).First();
-                    Specialyty_Trener check = context.specialyty_Treners.Where(c => c.trenerId == specialyty_Trener.trenerId && c.SpecialtiyId == (Specialtiy)specCombo.SelectedItem).First();
+                   // Specialyty_Trener check = context.specialyty_Treners.Where(c => c.trenerId == specialyty_Trener.trenerId && c.SpecialtiyId == (Specialtiy)specCombo.SelectedItem).First();
                     MessageBox.Show("Такая специальность уже есть");
                 }
                 catch
@@ -127,7 +127,7 @@ namespace ISFitnessCenter.Views
                     Specialyty_Trener specialyty_Trener = new()
                     {
                         trenerId = trener,
-                        SpecialtiyId = (Specialtiy)specCombo.SelectedItem
+                      //  SpecialtiyId = (Specialtiy)specCombo.SelectedItem
                     };
                     MessageBox.Show("Специальность добавлена");
                 }
