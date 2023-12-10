@@ -1,6 +1,7 @@
 ﻿using ISFitnessCenter.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,7 +66,8 @@ namespace ISFitnessCenter.Views.Frames
 
         private void EditTrener_Click(object sender, RoutedEventArgs e)
         {
-            
+            EditTrener et = new((TrenerLog)trList.SelectedItem);
+            et.ShowDialog();
         }
 
         private void ShowTrenirovki_Click(object sender, RoutedEventArgs e)

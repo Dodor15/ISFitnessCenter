@@ -7,6 +7,56 @@
         mc:Ignorable="d"
         Title="EditTrener" Height="450" Width="800">
     <StackPanel>
-        
+        <Label Margin="20" x:Name="FioTrenerLabel"/>
+        <CheckBox  x:Name="Mondeay" Content="Понедельник">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox x:Name="Tuesday" Content="Вторник">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox x:Name="Wednesday" Content="Среда">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox x:Name="Thursday" Content="Четверг">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox x:Name="Ftiday" Content="Пятница">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox x:Name="Saturday" Content="Суббота">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox x:Name="Sunday" Content="Воскресенье">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <!--<Label Content="Добавить специальность"/>
+        <ComboBox x:Name="specCombo" SelectedItem="{Binding specialtiy}" Width="400" HorizontalAlignment="Left" Margin="10"> 
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding specialityName}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>-->
+            
+
+        <StackPanel Orientation="Horizontal" Margin="20">
+            
+            <Button Content="Изменить" x:Name="editTrenButton" Click="editTrenButton_Click" Margin="0 0 20 0"/>
+            <!--<Button Content="Добавить специальность" x:Name="AddSpecButton" Click="AddSpecButton_Click"/>-->
+        </StackPanel>
     </StackPanel>
 </Window>

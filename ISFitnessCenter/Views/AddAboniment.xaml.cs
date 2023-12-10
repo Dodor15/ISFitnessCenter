@@ -43,7 +43,7 @@ namespace ISFitnessCenter.Views
             if (clients.trampoline is true)
                 trampline.IsChecked = true;
             addClient.Content = "Изменить";
-            dogovor.Content = "Продление";
+            
 
         }
         public AddAboniment()
@@ -62,22 +62,32 @@ namespace ISFitnessCenter.Views
                 {
                     client.Pool = true;
                 }
+                else
+                    client.Pool = false;
                 if (ring.IsChecked == true)
                 {
                     client.Ring = true;
                 }
+                else
+                    client.Ring = false;
                 if (dance.IsChecked == true)
                 {
                     client.Dance = true;
                 }
+                else
+                    client.Dance = false;
                 if (aerobic.IsChecked == true)
                 {
                     client.Aerobic = true;
                 }
+                else
+                    client.Aerobic = false;
                 if (trampline.IsChecked == true)
                 {
                     client.trampoline = true;
                 }
+                else
+                    client.trampoline = false;
                 if (edit)
                 {
                     ClientDataManagementClass clients = new();

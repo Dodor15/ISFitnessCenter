@@ -11,12 +11,8 @@
         <TextBox x:Name="fioBox"/>
         <Label Content="Номер телефона"/>
         <TextBox x:Name="phoneBox"/>
-        <Label Content="Договор на" x:Name="dogovor"/>
-        <ComboBox x:Name="date">
-            <Label Content="Не продлевать"/>
-            <Label Content="Месяц"/>
-            <Label Content="Год"/>
-        </ComboBox>
+        
+        
         
         <Label Content="Дополнительные опции:" Margin="0 40 0 0"/>
         <CheckBox Content="Бассейн" x:Name="pool" Margin="0 20 0 0">
