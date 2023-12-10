@@ -45,18 +45,20 @@ namespace ISFitnessCenter.Views.Frames
         {
             AddAboniment aa = new AddAboniment();
             aa.ShowDialog();
-           
+            
+
         }
 
         private void edit_Click(object sender, RoutedEventArgs e)
         {
             AddAboniment aa = new AddAboniment((Client)ClientsList.SelectedItem);
             aa.ShowDialog();
+            
         }
 
         private void treners_Click(object sender, RoutedEventArgs e)
         {
-           NavigationService.Navigate(new Treners());
+           NavigationService.Navigate(new Treners((Client)ClientsList.SelectedItem));
         }
 
         private void addPeople_Click(object sender, RoutedEventArgs e)
@@ -79,6 +81,25 @@ namespace ISFitnessCenter.Views.Frames
                 edit.IsEnabled = false;
                 treners.IsEnabled = false; // Деактивация кнопки
             }
+        }
+
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            clientss.Clear();
+            using (var context = new FitnessContext())
+            {
+                foreach (var cl in context.clients.ToList())
+                {
+                    clientss.Add(cl);
+                }
+            }
+            var filter = new ObservableCollection<Client>(clientss.Where(c => c.FIOclient.Contains(SearchBox.Text)));
+            ClientsList.ItemsSource = filter;
+        }
+
+        private void ShowTreners_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AllTreners());
         }
     }
 }

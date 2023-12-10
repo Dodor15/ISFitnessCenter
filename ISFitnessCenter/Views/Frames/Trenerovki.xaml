@@ -10,7 +10,7 @@
 
     <StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Button Content="Назад" x:Name="back" Click="back_Click"/>
+            <Button Command="{x:Static NavigationCommands.BrowseBack}" Content="Назад" x:Name="back" Click="back_Click"/>
         </StackPanel>
         <ListView x:Name="trenersLV" ItemsSource="{Binding ST}" SelectionChanged="trenersLV_SelectionChanged">
             <ListView.View>

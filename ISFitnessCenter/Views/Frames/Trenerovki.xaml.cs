@@ -24,8 +24,10 @@ namespace ISFitnessCenter.Views.Frames
     public partial class Trenerovki : Page
     {
         public ObservableCollection<Specialyty_Trener> ST { get; set; }
-        public Trenerovki(Specialtiy specialtiy)
+        public Client _client = new Client();
+        public Trenerovki(Specialtiy specialtiy, Client client)
         {
+            _client = client;
             ST = new();
             using (var context = new FitnessContext())
             {
@@ -45,6 +47,9 @@ namespace ISFitnessCenter.Views.Frames
 
         private void trenersLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ZapicTrenirovki ZT = new((Specialyty_Trener)trenersLV.SelectedItem, _client);
+            ZT.ShowDialog();
+            NavigationService.GoBack();
 
         }
     }

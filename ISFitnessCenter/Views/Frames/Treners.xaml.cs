@@ -27,8 +27,10 @@ namespace ISFitnessCenter.Views.Frames
     public partial class Treners : Page
     {
         public ObservableCollection<Specialtiy> trenerList { get; set; }
-        public Treners()
+        public Client _client = new();
+        public Treners(Client client)
         {
+            _client = client;
             trenerList = new ObservableCollection<Specialtiy>();
             using (var context = new FitnessContext())
             {
@@ -46,12 +48,14 @@ namespace ISFitnessCenter.Views.Frames
 
         private void spec_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            NavigationService.Navigate(new Trenerovki((Specialtiy)spec.SelectedItem));
+            NavigationService.Navigate(new Trenerovki( (Specialtiy)spec.SelectedItem, _client));
+           
+                
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }

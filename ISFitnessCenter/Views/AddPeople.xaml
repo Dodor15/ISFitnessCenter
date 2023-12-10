@@ -12,6 +12,7 @@
             <Label Content="Тренера"/>
             <Label Content="Клиенты"/>
             <Label Content="Specialnosi"/>
+            <Label Content="schedules"/>
         </ComboBox>
         <Label Content="Count"/>
         <TextBox PreviewTextInput="TextBox_PreviewTextInput" x:Name="countText"/>

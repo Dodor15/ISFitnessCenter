@@ -28,6 +28,8 @@ namespace ISFitnessCenter.Views
         public Client cl { get; set; }
         /*Specialyty_Trener st1 = new Specialyty_Trener();*/
         public Specialyty_Trener st2 { get; set; }
+        List<Schedule> schedules;
+        
         
         public AddPeople()
         {
@@ -110,6 +112,39 @@ namespace ISFitnessCenter.Views
                         context.SaveChanges();
                     }
                     MessageBox.Show("Сохранено");
+                    break;
+                case 3:
+
+                    using (var context = new FitnessContext())
+                    {
+                        List<Trener> treners = context.treners.ToList();
+                        var sch = new Faker<Schedule>()
+                            .RuleFor(o => o.Mondeay, f => f.Random.Bool())
+                            .RuleFor(o => o.Tuesday, f => f.Random.Bool())
+                            .RuleFor(o => o.Wednesday, f => f.Random.Bool())
+                            .RuleFor(o => o.Saturday, f => f.Random.Bool())
+                            .RuleFor(o => o.Ftiday, f => f.Random.Bool())
+                            .RuleFor(o => o.Thursday, f => f.Random.Bool())
+                            .RuleFor(o => o.Sunday, f => f.Random.Bool());
+                        schedules = sch.Generate(treners.Count);
+                        for (int i = 0; i < treners.Count; i++)
+                        {
+                            var _schedule = new Schedule();
+                            _schedule.trenerId = treners[i];
+                            _schedule.Mondeay = schedules[i].Mondeay;
+                            _schedule.Tuesday = schedules[i].Tuesday;
+                            _schedule.Wednesday = schedules[i].Wednesday;
+                            _schedule.Saturday = schedules[i].Saturday;
+                            _schedule.Ftiday = schedules[i].Ftiday;
+                            _schedule.Thursday = schedules[i].Thursday;
+                            _schedule.Sunday = schedules[i].Sunday;
+                            context.schedules.Add(_schedule);
+                        }
+                        context.SaveChanges();
+                    }
+                    MessageBox.Show("Сохранено");
+
+
                     break;
             }
         }
