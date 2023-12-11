@@ -33,7 +33,7 @@ namespace ISFitnessCenter.Views.Frames
                     int nag = 0;
                     try
                     {
-                        nag = context.trener_Clients.Where(c => c.trenerID == tr).Count();
+                        nag = context.trener_Clients.Where(c => c.trenerID == tr).Count();//
                     }
                     catch { }
                     
